@@ -159,44 +159,63 @@
 // }
 
 //FACTORY FUNCTIONS
-class Car {
-    constructor(make, vin) {
-        this.make = make;
-        this.vin = vin;
+// class Car {
+//     constructor(make, vin) {
+//         this.make = make;
+//         this.vin = vin;
+//     }
+//     //methods
+//     drive() {
+//         console.log('vroom vroom')
+//     }
+// }
+
+// //create an object
+// const mazda = new Car('Mazda', 1234567984987);
+// // console.log(mazda)
+
+// class Factory {
+//     constructor (company) {
+//         this.company = company;
+//         this.car = [];
+//     }
+//     generateCar() {
+//         const newCar = new Car(this.company, this.cars.length);
+//         this.cars.push(newCar)
+//     }
+//     findCar (index) {
+//         return this.cars[index]
+//     }
+// }
+// const tesla = new Factory('Tesla');
+// console.log(tesla)
+// tesla.generateCar();
+// console.log(tesla)
+// //find car
+// console.log(tesla.findCar(0))
+
+// const porche = new Factory('Porche');
+// porche.generateCar()
+// porche.generateCar()
+// porche.generateCar()
+
+// console.log(porche);
+
+//STATIC
+class Person {
+    constructor(name, age, eyeColor, hair) {
+        this.name = name;
+        this.age = age;
+        this.hair = hair;
+        this.eyeColor = eyeColor;
     }
-    //methods
-    drive() {
-        console.log('vroom vroom')
+    static eyeColor() {
+        return ['blue', 'green', 'brown']
     }
 }
+class SuperHero extends Person {
 
-//create an object
-const mazda = new Car('Mazda', 1234567984987);
-// console.log(mazda)
-
-class Factory {
-    constructor (company) {
-        this.company = company;
-        this.car = [];
-    }
-    generateCar() {
-        const newCar = new Car(this.company, this.cars.length);
-        this.cars.push(newCar)
-    }
-    findCar (index) {
-        return this.cars[index]
-    }
 }
-const tesla = new Factory('Tesla');
-console.log(tesla)
-tesla.generateCar();
-console.log(tesla)
-//find car
-console.log(tesla.findCar(0))
 
-const porche = new Factory('Porche');
-porche.generateCar()
-porche.generateCar()
-porche.generateCar()
-
-console.log(porche);
+const superman = new SuperHero('Clark Kent', 30, Person.eyeColor()[0], 'black')
+console.log(superman)

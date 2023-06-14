@@ -69,34 +69,34 @@
 // console.log(foo[3]())
 
 // CREATING A CLASS
-class Character {
-    constructor(name, age, eyes, hair, lovesCats = true, lovesDogs) {
-        this.legs = 2;
-        this.arms = 2;
-        this.name = name;
-        this.age = age;
-        this.eyes = eyes;
-        this.hair = hair;
-        this.lovesCats = lovesCats;
-        this.loveDogs = lovesDogs || true; // default to true
-    }
-    setHairColor (HairColor) {
-        this.hair = HairColor;
-    }
-    //method1
-    greet(otherCharacter) {
-        console.log(`hello ${otherCharacter}`);
-    }
-    //method2
-    smite() {
-        console.log(`I smite thee you vile person!`)
-    }
-    static greet() {
-        console.log(`hi`);
-    }
-}
-const alexander = new Character();
-const brock = new Character();
+// class Character {
+//     constructor(name, age, eyes, hair, lovesCats = true, lovesDogs) {
+//         this.legs = 2;
+//         this.arms = 2;
+//         this.name = name;
+//         this.age = age;
+//         this.eyes = eyes;
+//         this.hair = hair;
+//         this.lovesCats = lovesCats;
+//         this.loveDogs = lovesDogs || true; // default to true
+//     }
+//     setHairColor (HairColor) {
+//         this.hair = HairColor;
+//     }
+//     //method1
+//     greet(otherCharacter) {
+//         console.log(`hello ${otherCharacter}`);
+//     }
+//     //method2
+//     smite() {
+//         console.log(`I smite thee you vile person!`)
+//     }
+//     static greet() {
+//         console.log(`hi`);
+//     }
+// }
+// const alexander = new Character();
+// const brock = new Character();
 
 // const Miranda = new Character();
 // const Brownie = new Character();
@@ -117,5 +117,86 @@ const brock = new Character();
 // console.log(Miranda);
 
 // name. age, eyes, hair, cats, dogs
-const Miranda = new Character("Miranda", "150", "green", "Silver")
-Miranda.setHairColor('red')
+// const Miranda = new Character("Miranda", "150", "green", "Silver")
+// Miranda.setHairColor('red')
+
+// class Character {
+//     constructor(name, age, eyes, hair, lovesCats = true, lovesDogs) {
+//         this.legs = 2;
+//         this.arms = 2;
+//         this.name = name;
+//         this.age = age;
+//         this.eyes = eyes;
+//         this.hair = hair;
+//         this.lovesCats = lovesCats;
+//         this.lovesDogs = lovesDogs || true;
+//     }
+//     greet(otherCharacter) {
+//         console.log('hi ' + otherCharacter + '!');
+//     }
+//     classyGreeting(otherClassyCharacter) {
+//         console.log('Howdy ' + otherClassyCharacter.name + '!');
+//     }
+//     setHair(hairColor) {
+//         this.hair = hairColor;
+//     }
+//     smite() {
+//         console.log('i smited thee.');
+//     }
+
+// }
+// const hobbit = new Character('Mr Baggins', 33, 'brown', 'black')
+// //   console.log(hobbit);
+
+// class Hobbit extends Character {
+//     constructor(name, age, eyes, hair) {
+//         super(name, age, eyes, hair);
+//         this.skills = ['thievery', 'speed', 'willpower']
+//     }
+//     steal() {
+//         super.super();
+//     }
+// }
+
+//FACTORY FUNCTIONS
+class Car {
+    constructor(make, vin) {
+        this.make = make;
+        this.vin = vin;
+    }
+    //methods
+    drive() {
+        console.log('vroom vroom')
+    }
+}
+
+//create an object
+const mazda = new Car('Mazda', 1234567984987);
+// console.log(mazda)
+
+class Factory {
+    constructor (company) {
+        this.company = company;
+        this.car = [];
+    }
+    generateCar() {
+        const newCar = new Car(this.company, this.cars.length);
+        this.cars.push(newCar)
+    }
+    findCar (index) {
+        return this.cars[index]
+    }
+}
+const tesla = new Factory('Tesla');
+console.log(tesla)
+tesla.generateCar();
+console.log(tesla)
+//find car
+console.log(tesla.findCar(0))
+
+const porche = new Factory('Porche');
+porche.generateCar()
+porche.generateCar()
+porche.generateCar()
+
+console.log(porche);
